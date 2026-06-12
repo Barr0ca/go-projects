@@ -1,0 +1,34 @@
+# Binários compilados
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Testes e coverage
+*.test
+*.out
+coverage.out
+coverage.html
+
+# Dependências locais (se usar vendoring)
+vendor/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Segredos — nunca versionar
+.env
+.env.*
+*.pem
+*.key
+credentials.json
+config.local.*
