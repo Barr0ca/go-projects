@@ -1,34 +1,45 @@
 # Hello
 
-Primeiro projeto do repositório — um "Hello, World!" em Go.
+Programa que imprime uma linha e encerra.
 
 ## Executar
+
+Na pasta do projeto:
 
 ```bash
 cd hello
 go run main.go
 ```
 
-**Saída:**
+Na raiz do repositório:
+
+```bash
+go run ./hello
 ```
-Hello, World! Boa noite.
+
+**Saída:**
+
+```
+Hello, World!
 ```
 
 ## Código
 
+O programa está em [`main.go`](./main.go):
+
 ```go
-package main          // Pacote main = programa executável
+package main
 
-import "fmt"         // Pacote padrão para entrada/saída
+import "fmt"
 
-func main() {        // Ponto de entrada do programa
-    fmt.Println("Hello, World!")
+func main() {
+	fmt.Println("Hello, World!")
 }
 ```
 
 | Elemento | Descrição |
 |----------|-----------|
-| `package main` | Obrigatório em todo executável Go |
-| `import "fmt"` | Importa o pacote de formatação |
-| `func main()` | Função executada ao iniciar o programa |
-| `fmt.Println` | Imprime texto e pula linha |
+| `package main` | Pacote de um programa executável |
+| `import "fmt"` | Pacote padrão de formatação e impressão |
+| `func main()` | Função chamada ao iniciar o programa |
+| `fmt.Println` | Imprime o texto e pula uma linha |
