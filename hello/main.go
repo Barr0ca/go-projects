@@ -7,7 +7,7 @@ import (
 
 func main() {
 	apresentacao()
-	exibiMenu()
+	exibeMenu()
 
 	opcao := escolheOpcao()
 
@@ -42,7 +42,7 @@ func apresentacao() {
 	fmt.Println("Este código está na versão", versao, "\n")
 }
 
-func exibiMenu() {
+func exibeMenu() {
 	fmt.Println("1 - Iniciar monitoramento")
 	fmt.Println("2 - Ver logs")
 	fmt.Println("0 - Sair do programa")
