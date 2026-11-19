@@ -7,19 +7,10 @@ import (
 
 func main() {
 	apresentacao()
+	
 	exibeMenu()
 
 	opcao := escolheOpcao()
-
-	// if opcao == 1 {
-	// 	fmt.Println("Iniciando monitoramento...")
-	// } else if opcao == 2 {
-	// 	fmt.Println("Exibindo logs...")
-	// } else if opcao == 0 {
-	// 	fmt.Println("Saindo...")
-	// } else {
-	// 	fmt.Println("Opção inválida!")
-	// }
 
 	switch opcao {
 	case 1:
