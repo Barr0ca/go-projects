@@ -16,8 +16,10 @@ func main() {
 		fmt.Println("O dia está ótimo.")
 	case 2:
 		fmt.Println("Café da tarde é muito bom.")
-	case 0:
+	case 3:
 		fmt.Println("A lua está muito bonita.")
+	case 0:
+		fmt.Println("Saindo...")
 		os.Exit(0)
 	default:
 		fmt.Println("Não entendi.")
@@ -35,7 +37,8 @@ func apresentacao() {
 func exibeMenu() {
 	fmt.Println("1 - Bom Dia!")
 	fmt.Println("2 - Boa Tarde!")
-	fmt.Println("0 - Boa Noite!")
+	fmt.Println("3 - Boa Noite!")
+	fmt.Println("0 - Sair.")
 }
 
 func escolheOpcao() int {

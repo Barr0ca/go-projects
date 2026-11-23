@@ -25,12 +25,13 @@ Este código está na versão 1.1
 
 1 - Bom Dia!
 2 - Boa Tarde!
-0 - Boa Noite!
+3 - Boa Noite!
+0 - Sair.
 1
 O dia está ótimo.
 ```
 
-A opção `2` imprime `Café da tarde é muito bom.` A opção `0` imprime `A lua está muito bonita.` e encerra com código de saída `0`. Qualquer outro valor imprime `Não entendi.` e encerra com código `1`.
+A opção `2` imprime `Café da tarde é muito bom.` A opção `3` imprime `A lua está muito bonita.` As opções `1`, `2` e `3` encerram o programa em seguida. A opção `0` imprime `Saindo...` e encerra com código de saída `0`. Qualquer outro valor imprime `Não entendi.` e encerra com código `1`.
 
 ## Código
 
@@ -54,5 +55,5 @@ func main() {
 | Função | Papel |
 |--------|--------|
 | `apresentacao` | Imprime nome e versão. `versao` é um `float32` |
-| `exibeMenu` | Lista as opções `1`, `2` e `0` |
+| `exibeMenu` | Lista as opções `1`, `2`, `3` e `0` |
 | `escolheOpcao` | Lê um `int` com `fmt.Scan` e devolve esse valor. O `int` depois do nome da função é o tipo do retorno |
