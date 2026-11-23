@@ -14,6 +14,7 @@ O `go.work` só permite rodar qualquer projeto a partir da raiz. Nenhum módulo 
 |---------|-----------|
 | [funcoes-e-menu](./funcoes-e-menu/) | Menu no terminal: funções, leitura com `fmt.Scan` e `switch` |
 | [hello](./hello/) | Programa que imprime `Hello, World!` |
+| [requisicoes-web](./requisicoes-web/) | Menu que consulta o status HTTP de um site com `http.Get` |
 
 ## Estrutura
 
@@ -26,7 +27,11 @@ go-projects/
 │   ├── go.mod
 │   ├── main.go
 │   └── README.md
-└── hello/
+├── hello/
+│   ├── go.mod
+│   ├── main.go
+│   └── README.md
+└── requisicoes-web/
     ├── go.mod
     ├── main.go
     └── README.md
@@ -44,6 +49,7 @@ Na raiz:
 ```bash
 go run ./hello
 go run ./funcoes-e-menu
+go run ./requisicoes-web
 ```
 
 Ou dentro da pasta do projeto:
@@ -53,7 +59,7 @@ cd hello
 go run main.go
 ```
 
-`funcoes-e-menu` lê um número do teclado. O README desse projeto mostra um exemplo.
+`funcoes-e-menu` e `requisicoes-web` leem um número do teclado. O README de cada um mostra um exemplo.
 
 ## Adicionar um projeto
 
@@ -67,4 +73,4 @@ cd ..
 go work use ./meu-projeto
 ```
 
-O projeto ganha um `README.md` com o que ele faz e como executar. A tabela desta página ganha uma linha para ele.
+Esses comandos criam a pasta, o `go.mod` e o registro no `go.work`. Em seguida, escreva o `README.md` do projeto, com o que ele faz e como executar, e acrescente uma linha na tabela **Projetos** desta página.
