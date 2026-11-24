@@ -4,7 +4,11 @@ import (
 	"fmt"      // Bib para formatacao
 	"net/http" // Bib para internet
 	"os"       // Bib para comandos de sistema
+	"time"     // Bib para comandos de tempo
 )
+
+const MONITORAMENTOS = 3
+const DELAY = 5
 
 func main() {
 	apresentacao()
@@ -30,11 +34,11 @@ func main() {
 func apresentacao() {
 	nome := "Fulano"
 	fmt.Println("Olá,", nome)
-	fmt.Println("Este código fará requisições na internet \n")
+	fmt.Println("Este código fará requisições na internet")
 }
 
 func exibeMenu() {
-	fmt.Println("1 - Realizar requisição.")
+	fmt.Println("\n1 - Realizar requisição.")
 	fmt.Println("0 - Sair\n")
 }
 
@@ -51,8 +55,21 @@ func escolheOpcao() int {
 // caso vamos ignorar o retorno de "error".
 
 func reqInternet() {
-	fmt.Println("Realizando requisição...")
-	site := "https://httpbin.org/status/404" // ou 200
+	fmt.Println("Realizando requisições...")
+	sites := []string{"https://www.uol.com.br/", "https://g1.globo.com/", "https://portal.ifrn.edu.br/"}
+
+	for i := 0; i < MONITORAMENTOS; i++ {
+		fmt.Println("\n---------------------------------------------", i, "---------------------------------------------")
+		for _, site := range sites {
+			fmt.Println("\nVerificando", site)
+			verificaSite(site)
+		}
+		time.Sleep(DELAY * time.Second)
+	}
+	fmt.Println("")
+}
+
+func verificaSite(site string) {
 	resp, _ := http.Get(site)
 
 	if resp.StatusCode > 199 && resp.StatusCode < 300 {

@@ -15,7 +15,7 @@ O `go.work` só permite rodar qualquer projeto a partir da raiz. Nenhum módulo 
 | [arrays-slices](./arrays-slices/) | Menu que mostra um array fixo e um slice que cresce com `append` |
 | [funcoes-e-menu](./funcoes-e-menu/) | Menu no terminal: funções, leitura com `fmt.Scan` e `switch` |
 | [hello](./hello/) | Programa que imprime `Hello, World!` |
-| [requisicoes-web](./requisicoes-web/) | Menu que consulta o status HTTP de um site com `http.Get` |
+| [requisicoes-web](./requisicoes-web/) | Menu que monitora o status HTTP de vários sites com `http.Get` |
 
 ## Estrutura
 
