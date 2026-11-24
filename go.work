@@ -1,6 +1,7 @@
 go 1.26.11
 
 use (
+	./arrays-slices
 	./funcoes-e-menu
 	./hello
 	./requisicoes-web

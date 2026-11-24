@@ -12,6 +12,7 @@ O `go.work` só permite rodar qualquer projeto a partir da raiz. Nenhum módulo 
 
 | Projeto | Descrição |
 |---------|-----------|
+| [arrays-slices](./arrays-slices/) | Menu que mostra um array fixo e um slice que cresce com `append` |
 | [funcoes-e-menu](./funcoes-e-menu/) | Menu no terminal: funções, leitura com `fmt.Scan` e `switch` |
 | [hello](./hello/) | Programa que imprime `Hello, World!` |
 | [requisicoes-web](./requisicoes-web/) | Menu que consulta o status HTTP de um site com `http.Get` |
@@ -23,6 +24,10 @@ go-projects/
 ├── README.md            # Este arquivo — índice dos projetos
 ├── go.work              # Workspace Go (liga os módulos para a raiz)
 ├── .gitignore
+├── arrays-slices/
+│   ├── go.mod
+│   ├── main.go
+│   └── README.md
 ├── funcoes-e-menu/
 │   ├── go.mod
 │   ├── main.go
@@ -47,8 +52,9 @@ cd go-projects
 Na raiz:
 
 ```bash
-go run ./hello
+go run ./arrays-slices
 go run ./funcoes-e-menu
+go run ./hello
 go run ./requisicoes-web
 ```
 
@@ -59,7 +65,7 @@ cd hello
 go run main.go
 ```
 
-`funcoes-e-menu` e `requisicoes-web` leem um número do teclado. O README de cada um mostra um exemplo.
+`funcoes-e-menu`, `requisicoes-web` e `arrays-slices` leem um número do teclado. O README de cada um mostra um exemplo.
 
 ## Adicionar um projeto
 
