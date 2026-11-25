@@ -3,5 +3,8 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println("Hello, World!")
+	nome := "Fulano"
+	var versao float32 = 1.1
+	fmt.Println("Olá,", nome)
+	fmt.Println("Este código está na versão", versao, "\n")
 }
