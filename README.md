@@ -14,8 +14,10 @@ O `go.work` só permite rodar qualquer projeto a partir da raiz. Nenhum módulo 
 |---------|-----------|
 | [arrays-slices](./arrays-slices/) | Menu que mostra um array fixo e um slice que cresce com `append` |
 | [funcoes-e-menu](./funcoes-e-menu/) | Menu no terminal: funções, leitura com `fmt.Scan` e `switch` |
-| [hello](./hello/) | Programa que imprime `Hello, World!` |
+| [hello](./hello/) | Programa que imprime um nome e a versão |
+| [monitoramento-sites](./monitoramento-sites/) | Monitora a disponibilidade de sites listados em um arquivo |
 | [requisicoes-web](./requisicoes-web/) | Menu que monitora o status HTTP de vários sites com `http.Get` |
+| [usando-arquivos](./usando-arquivos/) | Menu que lê as linhas de um arquivo de texto |
 
 ## Estrutura
 
@@ -36,9 +38,19 @@ go-projects/
 │   ├── go.mod
 │   ├── main.go
 │   └── README.md
-└── requisicoes-web/
+├── monitoramento-sites/
+│   ├── go.mod
+│   ├── main.go
+│   ├── README.md
+│   └── sites.txt
+├── requisicoes-web/
+│   ├── go.mod
+│   ├── main.go
+│   └── README.md
+└── usando-arquivos/
     ├── go.mod
     ├── main.go
+    ├── nomes.txt
     └── README.md
 ```
 
@@ -55,7 +67,9 @@ Na raiz:
 go run ./arrays-slices
 go run ./funcoes-e-menu
 go run ./hello
+go run ./monitoramento-sites
 go run ./requisicoes-web
+go run ./usando-arquivos
 ```
 
 Ou dentro da pasta do projeto:
@@ -65,7 +79,7 @@ cd hello
 go run main.go
 ```
 
-`funcoes-e-menu`, `requisicoes-web` e `arrays-slices` leem um número do teclado. O README de cada um mostra um exemplo.
+`arrays-slices`, `funcoes-e-menu`, `monitoramento-sites`, `requisicoes-web` e `usando-arquivos` leem um número do teclado. O README de cada um mostra um exemplo. `monitoramento-sites` e `usando-arquivos` abrem um arquivo pelo caminho a partir da raiz do repositório.
 
 ## Adicionar um projeto
 
