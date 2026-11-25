@@ -1,6 +1,6 @@
 # Arrays e slices
 
-Programa de terminal que repete um menu e mostra um array de tamanho fixo e um slice que cresce com `append`.
+Programa de terminal que repete um menu, utilizando "for",  mostra um array de tamanho fixo e um slice que cresce com `append`.
 
 ## Executar
 
