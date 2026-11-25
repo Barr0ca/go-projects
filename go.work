@@ -4,5 +4,7 @@ use (
 	./arrays-slices
 	./funcoes-e-menu
 	./hello
+	./monitoramento-sites
 	./requisicoes-web
+	./usando-arquivos
 )
