@@ -15,7 +15,7 @@ O `go.work` só permite rodar qualquer projeto a partir da raiz. Nenhum módulo 
 | [arrays-slices](./arrays-slices/) | Menu que mostra um array fixo e um slice que cresce com `append` |
 | [funcoes-e-menu](./funcoes-e-menu/) | Menu no terminal: funções, leitura com `fmt.Scan` e `switch` |
 | [hello](./hello/) | Programa que imprime um nome e a versão |
-| [monitoramento-sites](./monitoramento-sites/) | Monitora a disponibilidade de sites listados em um arquivo |
+| [monitoramento-sites](./monitoramento-sites/) | Monitora sites listados em um arquivo e grava cada resultado em `logs.txt` |
 | [requisicoes-web](./requisicoes-web/) | Menu que monitora o status HTTP de vários sites com `http.Get` |
 | [usando-arquivos](./usando-arquivos/) | Menu que lê as linhas de um arquivo de texto |
 
@@ -40,6 +40,7 @@ go-projects/
 │   └── README.md
 ├── monitoramento-sites/
 │   ├── go.mod
+│   ├── logs.txt
 │   ├── main.go
 │   ├── README.md
 │   └── sites.txt

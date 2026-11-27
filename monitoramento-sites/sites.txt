@@ -1,7 +1,7 @@
 https://www.google.com
 https://www.cloudflare.com
 https://www.github.com
-https://www.wikipedia.org
+https://www.leagueoflegends.com
 https://www.amazon.com
 https://www.microsoft.com
 https://www.apple.com

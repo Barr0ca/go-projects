@@ -6,6 +6,7 @@ import (
 	"io"
 	"net/http"
 	"os"
+	"strconv" // Bib que converte tipos em string
 	"strings"
 	"time"
 )
@@ -23,7 +24,9 @@ func main() {
 
 		switch opcao {
 		case 1:
-			reqInternet()
+			reqInternet("monitoramento-sites/sites.txt")
+		case 2:
+			imprimeLogs("monitoramento-sites/logs.txt")
 		case 0:
 			fmt.Println("Saindo...")
 			os.Exit(0)
@@ -40,7 +43,8 @@ func apresentacao() {
 }
 
 func exibeMenu() {
-	fmt.Println("\n1 - Realizar requisição.")
+	fmt.Println("\n1 - Iniciar monitoramento.")
+	fmt.Println("2 - Exibir logs.")
 	fmt.Println("0 - Sair\n")
 }
 
@@ -51,12 +55,12 @@ func escolheOpcao() int {
 	return opcao
 }
 
-func reqInternet() {
+func reqInternet(arquivoTxt string) {
 	fmt.Println("Realizando requisições...")
-	sites := lerArquivo()
+	sites := lerArquivo(arquivoTxt)
 
 	for i := 0; i < MONITORAMENTOS; i++ {
-		fmt.Println("\n---------------------------------------------", i, "---------------------------------------------")
+		fmt.Println("\n---------------------------------------------", i+1, "---------------------------------------------")
 		for _, site := range sites {
 			fmt.Println("\nVerificando", site)
 			verificaSite(site)
@@ -75,15 +79,17 @@ func verificaSite(site string) {
 
 	if resp.StatusCode > 199 && resp.StatusCode < 300 {
 		fmt.Println("Site:", site, "foi carregado com sucesso!", "Status:", resp.StatusCode)
+		registraLogs(site, true)
 	} else {
 		fmt.Println("Site:", site, "está com problemas.", "Status:", resp.StatusCode)
+		registraLogs(site, false)
 	}
 }
 
-func lerArquivo() []string {
+func lerArquivo(arquivoTxt string) []string {
 	var sites []string
 
-	arquivo, err := os.Open("monitoramento-sites/sites.txt")
+	arquivo, err := os.Open(arquivoTxt)
 
 	if err != nil {
 		fmt.Println("Ocorreu um erro:", err)
@@ -103,6 +109,49 @@ func lerArquivo() []string {
 	}
 
 	arquivo.Close()
-
 	return sites
+}
+
+func registraLogs(site string, status bool) {
+	// O arquivo de log e criado caso nao exista (O_CREATE) podendo escrever e ler (O_RDWR)
+	// alem disso, com permissao total (0666)
+	arquivo, err := os.OpenFile("monitoramento-sites/logs.txt", os.O_CREATE|os.O_RDWR|os.O_APPEND, 0666)
+
+	if err != nil {
+		fmt.Println("Ocorreu um erro:", err)
+	}
+
+	// A linha e escrita no fim do arquivo devido ao "O_APPEND", flag de "OpenFile"
+	// Para formatar o tempo com dd/mm/aaaa, por exemplo, verifica-se as constantes do Go: https://go.dev/src/time/format.go
+	arquivo.WriteString(time.Now().Format("02/01/2006 15:04:05") + " - " + site + " - Online: " + strconv.FormatBool(status) + "\n")
+	arquivo.Close()
+}
+
+func imprimeLogs(arquivoTxt string) {
+	arquivo, err := os.Open("monitoramento-sites/logs.txt")
+
+	copiaArquivo := lerArquivo(arquivoTxt)
+
+	if err != nil {
+		fmt.Println("Ocorreu um erro:", err)
+	}
+
+	leitor := bufio.NewReader(arquivo)
+
+	for c := 0; c < len(copiaArquivo)-1; c++ {
+		linha, err := leitor.ReadString('\n')
+		linha = strings.TrimSpace(linha)
+
+		if c%10 == 0 {
+			fmt.Println("")
+		}
+
+		fmt.Println(linha)
+
+		if err == io.EOF {
+			break
+		}
+	}
+
+	arquivo.Close()
 }
